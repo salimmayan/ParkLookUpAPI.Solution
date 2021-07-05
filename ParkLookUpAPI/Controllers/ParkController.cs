@@ -31,7 +31,7 @@ namespace ParkLookUpAPI.Controllers
             {
                 query = query.Where(entry => entry.IsOpen == isOpen);
             }
-            return await query.ToListAsync();
+            return await query.ToListAsync(); 
         }
         // GET api/bachelorettes
         // [HttpGet]
