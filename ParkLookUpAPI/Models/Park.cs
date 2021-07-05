@@ -1,12 +1,12 @@
-namespace BacheloretteApi.Models
+namespace ParkLookUpAPI.Models
 {
-  public class Bachelorette
+  public class Park
   {
-    public int BacheloretteId {get; set;}
+    public int ParkId {get; set;}
     public string Name {get; set;}
-    public int Age {get; set;}
-    public string Job {get; set;}
-    public string Hometown {get; set;}
-    public int Season {get; set;} 
+    public int State {get; set;}
+    public string Area {get; set;}
+    public string City {get; set;}
+    public bool Open {get; set;} 
   }
 }
