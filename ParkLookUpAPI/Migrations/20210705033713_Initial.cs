@@ -27,12 +27,13 @@ namespace ParkLookUpAPI.Migrations
             migrationBuilder.InsertData(
                 table: "Parks",
                 columns: new[] { "ParkId", "Area", "City", "IsOpen", "Name", "State" },
-                values: new object[] { 1, 2219789, "West Yellowstone", true, "Yellow Stone", "Wyoming" });
-
-            migrationBuilder.InsertData(
-                table: "Parks",
-                columns: new[] { "ParkId", "Area", "City", "IsOpen", "Name", "State" },
-                values: new object[] { 2, 265461, "Estes Park", true, "Rocky Moutain", "Colorado" });
+                values: new object[,]
+                {
+                    { 1, 2219789, "West Yellowstone", true, "Yellow Stone", "Wyoming" },
+                    { 2, 265461, "Estes Park", true, "Rocky Moutain", "Colorado" },
+                    { 3, 183224, "Klamath Falls", false, "Crater Lake", "Oregon" },
+                    { 4, 236381, "Tacoma", true, "Mount Rainier", "Washington" }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

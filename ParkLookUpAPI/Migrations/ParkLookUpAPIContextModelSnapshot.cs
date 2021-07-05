@@ -62,6 +62,24 @@ namespace ParkLookUpAPI.Migrations
                             IsOpen = true,
                             Name = "Rocky Moutain",
                             State = "Colorado"
+                        },
+                        new
+                        {
+                            ParkId = 3,
+                            Area = 183224,
+                            City = "Klamath Falls",
+                            IsOpen = false,
+                            Name = "Crater Lake",
+                            State = "Oregon"
+                        },
+                        new
+                        {
+                            ParkId = 4,
+                            Area = 236381,
+                            City = "Tacoma",
+                            IsOpen = true,
+                            Name = "Mount Rainier",
+                            State = "Washington"
                         });
                 });
 #pragma warning restore 612, 618
