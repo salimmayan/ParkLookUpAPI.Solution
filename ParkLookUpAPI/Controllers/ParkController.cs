@@ -19,11 +19,11 @@ namespace ParkLookUpAPI.Controllers
             _db = db;
         }
         // GET api/bachelorettes
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Park>>> Get()
-        {
-            return await _db.Parks.ToListAsync();
-        }
+        // [HttpGet]
+        // public async Task<ActionResult<IEnumerable<Park>>> Get()
+        // {
+        //     // return await _db.Parks.ToListAsync();
+        // }
         // POST api/bachelorettes
         // [HttpPost]
         // public async Task<ActionResult<IEnumerable<Park>>> Post(Park bachelorette)

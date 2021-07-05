@@ -21,7 +21,7 @@ namespace ParkLookUpAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<BacheloretteApiContext>(opt =>
+            services.AddDbContext<ParkLookUpAPIContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
         }
