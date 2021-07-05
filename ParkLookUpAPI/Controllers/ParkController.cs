@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-// using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ParkLookUpAPI.Models;
 
 namespace ParkLookUpAPI.Controllers
@@ -17,6 +17,21 @@ namespace ParkLookUpAPI.Controllers
         public ParksController(ParkLookUpAPIContext db)
         {
             _db = db;
+        }
+        // GET api/bachelorette/1/contestants
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Park>>> Get(string state, bool isOpen) //example query: ?age=27 or ?isEliminated=false
+        {
+            var query = _db.Parks.AsQueryable();
+            if (state != null) //string age = "12"  int intAge = 12
+            {
+                query = query.Where(entry => entry.State == state);
+            }
+            if (isOpen == true || false)
+            {
+                query = query.Where(entry => entry.IsOpen == isOpen);
+            }
+            return await query.ToListAsync();
         }
         // GET api/bachelorettes
         // [HttpGet]
