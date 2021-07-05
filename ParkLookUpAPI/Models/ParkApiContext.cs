@@ -16,8 +16,8 @@ namespace ParkLookUpAPI.Models
           builder.Entity<Park>()
             .HasData(new Park { ParkId = 1, Name = "Yellow Stone", State = "Wyoming", Area = 2219789, City = "West Yellowstone", IsOpen = true },
                      new Park { ParkId = 2, Name = "Rocky Moutain", State = "Colorado", Area = 265461, City = "Estes Park", IsOpen = true },
-                     new Park { ParkId = 2, Name = "Crater Lake", State = "Oregon", Area = 183224, City = "Klamath Falls", IsOpen = false },
-                     new Park { ParkId = 2, Name = "Mount Rainier", State = "Washington", Area = 236381, City = "Tacoma", IsOpen = true }            );
+                     new Park { ParkId = 3, Name = "Crater Lake", State = "Oregon", Area = 183224, City = "Klamath Falls", IsOpen = false },
+                     new Park { ParkId = 4, Name = "Mount Rainier", State = "Washington", Area = 236381, City = "Tacoma", IsOpen = true }            );
         }
     }
 }
