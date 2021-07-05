@@ -55,20 +55,19 @@ namespace ParkLookUpAPI.Controllers
         }
 
         
-        // //DELETE: api/bachelorette/id
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> DeleteBachelorette(int id)
-        // {
-        //   var bachelorette = await _db.Bachelorettes.FindAsync(id);
-        //   if (bachelorette == null)
-        //   {
-        //     return NotFound();
-        //   }
-
-        //   _db.Bachelorettes.Remove(bachelorette);
-        //   await _db.SaveChangesAsync();
-        //   return NoContent();
-        // }
+        //DELETE: api/bachelorette/id
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePark(int id)
+        {
+          var park = await _db.Parks.FindAsync(id);
+          if (park == null)
+          {
+            return NotFound();
+          }
+          _db.Parks.Remove(park);
+          await _db.SaveChangesAsync();
+          return NoContent();
+        }
 
         // //PUT: api/bachelorette/id
         // [HttpPut("{id}")]
