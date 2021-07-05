@@ -26,15 +26,18 @@ namespace ParkLookUpAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<bool>("Open")
+                    b.Property<bool>("IsOpen")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("State")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("ParkId");
@@ -47,8 +50,8 @@ namespace ParkLookUpAPI.Migrations
                             ParkId = 1,
                             Area = 2219789,
                             City = "West Yellowstone",
+                            IsOpen = true,
                             Name = "Yellow Stone",
-                            Open = true,
                             State = "Wyoming"
                         },
                         new
@@ -56,8 +59,8 @@ namespace ParkLookUpAPI.Migrations
                             ParkId = 2,
                             Area = 265461,
                             City = "Estes Park",
+                            IsOpen = true,
                             Name = "Rocky Moutain",
-                            Open = true,
                             State = "Colorado"
                         });
                 });

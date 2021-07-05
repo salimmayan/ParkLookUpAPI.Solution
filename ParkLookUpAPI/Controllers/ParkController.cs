@@ -9,7 +9,7 @@ using ParkLookUpAPI.Models;
 
 namespace ParkLookUpAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/parklookup/[controller]")]
     [ApiController]
     public class ParksController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace ParkLookUpAPI.Controllers
         {
             _db = db;
         }
-        // GET api/bachelorette/1/contestants
+        // GET /api/parklookup/parks?state=Wyoming&isopen=true
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Park>>> Get(string state, bool isOpen) //example query: ?age=27 or ?isEliminated=false
         {
@@ -31,23 +31,34 @@ namespace ParkLookUpAPI.Controllers
             {
                 query = query.Where(entry => entry.IsOpen == isOpen);
             }
-            return await query.ToListAsync(); 
+            return await query.ToListAsync();
         }
-        // GET api/bachelorettes
-        // [HttpGet]
-        // public async Task<ActionResult<IEnumerable<Park>>> Get()
-        // {
-        //     // return await _db.Parks.ToListAsync();
-        // }
-        // POST api/bachelorettes
-        // [HttpPost]
-        // public async Task<ActionResult<IEnumerable<Park>>> Post(Park bachelorette)
-        // {
-        //   _db.Bachelorettes.Add(bachelorette);
-        //   await _db.SaveChangesAsync();
-        //   return CreatedAtAction(nameof(GetBachelorette), new { id = bachelorette.BacheloretteId }, bachelorette);
 
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<Park>>> Post(Park park)
+        {
+            _db.Parks.Add(park);
+            await _db.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetParkById), new { id = park.ParkId }, park);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Park>> GetParkById(int id)
+        {
+            var Park = await _db.Parks.FindAsync(id);
+            if (Park == null)
+            {
+                return NotFound();
+            }
+            return Park;
+        }
+
+        // [HttpGet]
+        // public async Task<ActionResult<IEnumerable<Park>>> GetAll()
+        // {
+        //     return await _db.Parks.ToListAsync();
         // }
+       
         // // Get Bachelorette by id api/bachelorettes/1
         // [HttpGet("{id}")]
         // public async Task<ActionResult<Bachelorette>> GetBachelorette(int id)

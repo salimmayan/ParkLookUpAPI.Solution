@@ -24,6 +24,7 @@ namespace ParkLookUpAPI
             services.AddDbContext<ParkLookUpAPIContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +36,14 @@ namespace ParkLookUpAPI
             }
 
             // app.UseHttpsRedirection();
+ 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API Ver-0.1");
+            });
+
 
             app.UseRouting();
 
