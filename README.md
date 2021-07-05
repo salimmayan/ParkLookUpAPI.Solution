@@ -1,4 +1,4 @@
-# ## ## Park Lookup API
+# Park Lookup API
 
 ##### Date: **07/04/2021**
 
