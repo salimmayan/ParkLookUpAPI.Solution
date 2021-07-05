@@ -42,6 +42,7 @@ namespace ParkLookUpAPI.Controllers
             return CreatedAtAction(nameof(GetParkById), new { id = park.ParkId }, park);
         }
 
+        //https://localhost:5001/api/parklookup/parks/2
         [HttpGet("{id}")]
         public async Task<ActionResult<Park>> GetParkById(int id)
         {
@@ -53,24 +54,7 @@ namespace ParkLookUpAPI.Controllers
             return Park;
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult<IEnumerable<Park>>> GetAll()
-        // {
-        //     return await _db.Parks.ToListAsync();
-        // }
-       
-        // // Get Bachelorette by id api/bachelorettes/1
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<Bachelorette>> GetBachelorette(int id)
-        // {
-        //   var bachelorette = await _db.Bachelorettes.FindAsync(id);
-        //   if (bachelorette == null)
-        //   {
-        //     return NotFound();
-        //   }
-        //   return bachelorette;
-        // }
-
+        
         // //DELETE: api/bachelorette/id
         // [HttpDelete("{id}")]
         // public async Task<IActionResult> DeleteBachelorette(int id)
