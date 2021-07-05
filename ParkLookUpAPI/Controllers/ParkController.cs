@@ -55,7 +55,7 @@ namespace ParkLookUpAPI.Controllers
         }
 
         
-        //DELETE: api/bachelorette/id
+        //DELETE: api/parklookup/parks/2
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePark(int id)
         {
@@ -69,36 +69,36 @@ namespace ParkLookUpAPI.Controllers
           return NoContent();
         }
 
-        // //PUT: api/bachelorette/id
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> Put(int id, Bachelorette bachelorette)
-        // {
-        //   if (id != bachelorette.BacheloretteId)
-        //   {
-        //     return BadRequest();
-        //   }
-        //   _db.Entry(bachelorette).State = EntityState.Modified;
-        //   try
-        //   {
-        //     await _db.SaveChangesAsync();
-        //   }
-        //   catch (DbUpdateConcurrencyException)
-        //   {
-        //     if (!BacheloretteExists(id))
-        //     {
-        //       return NotFound();
-        //     }
-        //     else
-        //     {
-        //       throw;
-        //     }
-        //   }
-        //   return NoContent();
-        // }
+        //PUT: api/bachelorette/id
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Park park)
+        {
+          if (id != park.ParkId)
+          {
+            return BadRequest();
+          }
+          _db.Entry(park).State = EntityState.Modified;
+          try
+          {
+            await _db.SaveChangesAsync();
+          }
+          catch (DbUpdateConcurrencyException)
+          {
+            if (!ParkExists(id))
+            {
+              return NotFound();
+            }
+            else
+            {
+              throw;
+            }
+          }
+          return NoContent();
+        }
 
-        // private bool BacheloretteExists(int id)
-        // {
-        //   return _db.Bachelorettes.Any(e => e.BacheloretteId == id);
-        // }
+        private bool ParkExists(int id)
+        {
+          return _db.Parks.Any(e => e.ParkId == id);
+        }
     }
 }
