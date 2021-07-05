@@ -69,7 +69,7 @@ namespace ParkLookUpAPI.Controllers
           return NoContent();
         }
 
-        //PUT: api/bachelorette/id
+        //PUT: api/parklookup/parks/2
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Park park)
         {
